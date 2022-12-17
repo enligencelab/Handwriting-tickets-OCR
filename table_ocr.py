@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 from openvino.inference_engine import IECore
 from handwritten_chinese_ocr.ctccodec import CtcCodec
-import multiprocessing
 
 # %%
 model_xml = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/handwritten-simplified-chinese' \
