@@ -2,19 +2,32 @@ import cv2
 import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
+from sklearn.neighbors import NearestNeighbors
+from tvregdiff import TVRegDiff
 
 
 def get_cluster_labels(cells_df):
-    n_tables = cells_df['table_id'].max() + 1
-    # TODO: Elbow method
-    min_pts = int(n_tables * 0.4)
     positions = pd.DataFrame({
         'relative_x': cells_df['x'] / cells_df['table_w'],
         'relative_y': cells_df['y'] / cells_df['table_h']
     })
+    n_tables = cells_df['table_id'].max() + 1
+    min_pts = int(n_tables * 0.4)
+
+    # elbow method
+    # neighbor = NearestNeighbors(n_neighbors=min_pts)
+    # neighbor.fit(positions)
+    # distance, _ = neighbor.kneighbors(positions)
+    # kth_distance = np.sort(distance, axis=0)[:, -1]
+    # diff_1 = TVRegDiff(kth_distance, itern=1, alph=1, plotflag=False)
+    # b = np.argmin(diff_1)
+    # eps = kth_distance[b]
+
+    # empirical method
     relative_w = cells_df['w'] / cells_df['table_w']
     relative_h = cells_df['h'] / cells_df['table_h']
     eps = np.sqrt(relative_w.min() ** 2 + relative_h.min() ** 2) * 1.22475
+
     dbscan = DBSCAN(eps=eps, min_samples=min_pts, n_jobs=-1)
     cells_df['labels'] = dbscan.fit_predict(positions)
     cells_df = cells_df.loc[cells_df['labels'] != -1, :]

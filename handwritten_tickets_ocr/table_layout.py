@@ -4,10 +4,12 @@ import numpy as np
 import pandas as pd
 
 
-def pdf_to_image(path):
+def pdf_to_image(path, page_indices=None):
     pdf = pdfium.PdfDocument(path)
+    if page_indices is None:
+        page_indices = range(len(pdf))
     # https://pypdfium2.readthedocs.io/en/stable/python_api.html#pypdfium2._helpers.page.PdfPage.render_base
-    pages_generator = pdf.render_to(pdfium.BitmapConv.numpy_ndarray, page_indices=range(len(pdf)),
+    pages_generator = pdf.render_to(pdfium.BitmapConv.numpy_ndarray, page_indices=page_indices,
                                     scale=300 / 72, greyscale=True)  # scale unit: 72 dpi
     return pages_generator
 

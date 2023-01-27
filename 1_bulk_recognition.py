@@ -1,14 +1,14 @@
 import os
 from itertools import count
-from table_layout import pdf_to_image, locate_table_rotated, cells_position
+from handwritten_tickets_ocr.table_layout import pdf_to_image, locate_table_rotated, cells_position
 import pandas as pd
 import pickle
-from cell_correspondence import get_cluster_labels, group_cells, visualize_anchors
-from table_ocr import table_to_text
+from handwritten_tickets_ocr.cell_correspondence import get_cluster_labels, group_cells, visualize_anchors
+from handwritten_tickets_ocr.table_ocr import table_to_text
 from tqdm import tqdm
 
 # %% file I/O
-filename = 'data/style3.pdf'
+filename = 'data/style1.pdf'
 name = os.path.splitext(os.path.split(filename)[1])[0]
 
 # %% table layout

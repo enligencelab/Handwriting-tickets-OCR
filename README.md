@@ -48,7 +48,26 @@ This config hasn't been tested because the author does not have a Intel GPU.
 
 ## Acknowledgement
 
-This project use the compiled binary form of LSTM-RNN-CTC pretrained model by 
+[LSTM-RNN-CTC pretrained model](https://github.com/intel/handwritten-chinese-ocr-samples)
+
+*This project use the compiled binary form of LSTM-RNN-CTC pretrained model by 
 Intel when testing, but does not have right to take actions including but not 
-limiting to redistribute, copy, modify the upstreaming resources. This model 
-is located at [https://github.com/intel/handwritten-chinese-ocr-samples](https://github.com/intel/handwritten-chinese-ocr-samples)
+limiting to redistribute, copy, modify the upstreaming resources.*
+
+[Total variation regularized numerical differentiation algorithm](https://github.com/stur86/tvregdiff)
+
+## Usage
+
+When you have a bulk of tickets, which contains similar table which in a similar 
+position in each paper, please combine the images into a PDF file, where pages 
+have the same size, background color is light, and text color is dark. Then, 
+please assign the path to the PDF file to `filename` variable in 
+`1_bulk_recognition.py` and run this script. 
+
+### Documentation
+
+The theoretical background of this project.
+
+| Language | File                                                    |
+|----------|---------------------------------------------------------|
+| zh-CN    | [Documentation](docs/Handwriting_Tickets_OCR_zh_CN.pdf) |

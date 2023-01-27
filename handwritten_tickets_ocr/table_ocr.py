@@ -9,7 +9,7 @@ model_xml = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/han
 model_bin = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/handwritten-simplified-chinese' \
             '-recognition-0001.bin'
 # Prepare the language specific information, characters list and codec method
-chars_list_file = 'handwritten_chinese_ocr/scut_ept.txt'
+chars_list_file = '../handwritten_chinese_ocr/scut_ept.txt'
 with open(chars_list_file, 'r') as f:
     model_characters = f.read()
 codec = CtcCodec(model_characters)
@@ -19,6 +19,7 @@ net_exec = ie.load_network(network=net, device_name='CPU')
 _, _, net_h, net_w = net.input_info['actual_input'].input_data.shape
 
 
+# %%
 def preprocess_input(img, net_h_, net_w_):
     # this function is applicable when text alignment is horizontal
     cell_h, cell_w = img.shape
