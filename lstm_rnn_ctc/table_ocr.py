@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from openvino.inference_engine import IECore
-from ctccodec import CtcCodec
+from lstm_rnn_ctc.ctccodec import CtcCodec
 
 # %%
 model_xml = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/handwritten-simplified-chinese' \
@@ -9,7 +9,7 @@ model_xml = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/han
 model_bin = 'intel/handwritten-simplified-chinese-recognition-0001/FP16-INT8/handwritten-simplified-chinese' \
             '-recognition-0001.bin'
 # Prepare the language specific information, characters list and codec method
-chars_list_file = 'scut_ept.txt'
+chars_list_file = 'lstm_rnn_ctc/scut_ept.txt'
 with open(chars_list_file, 'r') as f:
     model_characters = f.read()
 codec = CtcCodec(model_characters)
