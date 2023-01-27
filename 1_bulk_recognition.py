@@ -1,10 +1,10 @@
 import os
 from itertools import count
-from handwritten_tickets_ocr.table_layout import pdf_to_image, locate_table_rotated, cells_position
+from tickets.table_layout import pdf_to_image, locate_table_rotated, cells_position
 import pandas as pd
 import pickle
-from handwritten_tickets_ocr.cell_correspondence import get_cluster_labels, group_cells, visualize_anchors
-from handwritten_tickets_ocr.table_ocr import table_to_text
+from tickets.cell_correspondence import get_cluster_labels, group_cells, visualize_anchors
+from lstm_rnn_ctc.table_ocr import table_to_text
 from tqdm import tqdm
 
 # %% file I/O

@@ -1,10 +1,4 @@
-import os
-from itertools import count
-from handwritten_tickets_ocr.table_layout import pdf_to_image, cells_position
-import pandas as pd
-import pickle
-from handwritten_tickets_ocr.cell_correspondence import get_cluster_labels, group_cells, visualize_anchors
-from handwritten_tickets_ocr.table_ocr import table_to_text
+from tickets.table_layout import pdf_to_image
 import cv2
 import numpy as np
 

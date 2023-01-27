@@ -9,7 +9,7 @@ Modified: cloudy-sfu 2022-12-14
 import itertools
 import numpy as np
 from scipy.special import log_softmax
-from handwritten_chinese_ocr.transformer_infer import TransformerOVIE
+from lstm_rnn_ctc.transformer_infer import TransformerOVIE
 import kenlm
 
 NEG_INF = float('-inf')
