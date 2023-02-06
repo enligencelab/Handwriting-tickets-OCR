@@ -1,9 +1,11 @@
 # Handwriting Tickets OCR
 
- Recognizing tables with Chinese characters and numbers in handwritting tickets
+ Recognizing tables with Chinese characters and numbers in handwriting tickets
 
-![](https://img.shields.io/badge/OS-Ubuntu-lightgray)
-![](https://img.shields.io/badge/dependencies-Anaconda%203-brightgreen)
+![](https://shields.io/badge/OS-Linux%2064--bit%20(e.g.Ubuntu%2020.04)-lightgray)
+![](https://shields.io/badge/Minimum%20memory-4GB-lightgray)
+![](https://shields.io/badge/dependencies-Python%203.9-blue)
+![](https://shields.io/badge/dependencies-Anaconda%203-blue)
 
 ## Installation
 
@@ -31,7 +33,7 @@ if you have installed it and configured carefully.
 pip install -r requirements.txt
 ```
 
-### If you have an Intel GPU
+### If you have Intel GPUs
 
 If you have a Intel GPU, please choose the calculation component that is 
 compatible to both OpenVino and PyTorch. Also, please replace the following 
@@ -54,20 +56,9 @@ This config hasn't been tested because the author does not have a Intel GPU.
 Intel when testing, but does not have right to take actions including but not 
 limiting to redistribute, copy, modify the upstreaming resources.*
 
-[Total variation regularized numerical differentiation algorithm](https://github.com/stur86/tvregdiff)
-
 ## Usage
 
 When you have a bulk of tickets, which contains similar table which in a similar 
 position in each paper, please combine the images into a PDF file, where pages 
-have the same size, background color is light, and text color is dark. Then, 
-please assign the path to the PDF file to `filename` variable in 
-`1_bulk_recognition.py` and run this script. 
+have the same size, background color is light, and text color is dark. Then, use `1_bulk_recognition.py` to analyze it.
 
-### Documentation
-
-The theoretical background of this project.
-
-| Language | File                                                    |
-|----------|---------------------------------------------------------|
-| zh-CN    | [Documentation](docs/Handwriting_Tickets_OCR_zh_CN.pdf) |

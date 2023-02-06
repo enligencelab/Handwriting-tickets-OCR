@@ -17,7 +17,7 @@ def pdf_to_image(path, page_indices=None):
 def locate_table(img):
     img = cv2.bitwise_not(img)  # conver to black background
     # significantly faster than cv2.RETR_TREE
-    # extracting subtree from a hierarchy unsolved -> use cv2.RETR_EXTERNAL insteead of cv2.RETR_TREE
+    # extracting subtree from a hierarchy unsolved -> use cv2.RETR_EXTERNAL instead of cv2.RETR_TREE
     # not analyzing hierarchy inside the table in this function
     contours, hierarchy = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     size = [cv2.contourArea(x) for x in contours]  # Slightly faster than np.vectorize but not significant

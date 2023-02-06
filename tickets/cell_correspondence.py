@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
-from tickets.tvregdiff import TVRegDiff
 
 
 def get_cluster_labels(cells_df):
@@ -13,15 +12,6 @@ def get_cluster_labels(cells_df):
     })
     n_tables = cells_df['table_id'].max() + 1
     min_pts = int(n_tables * 0.4)
-
-    # elbow method
-    # neighbor = NearestNeighbors(n_neighbors=min_pts)
-    # neighbor.fit(positions)
-    # distance, _ = neighbor.kneighbors(positions)
-    # kth_distance = np.sort(distance, axis=0)[:, -1]
-    # diff_1 = TVRegDiff(kth_distance, itern=1, alph=1, plotflag=False)
-    # b = np.argmin(diff_1)
-    # eps = kth_distance[b]
 
     # empirical method
     relative_w = cells_df['w'] / cells_df['table_w']
@@ -66,4 +56,3 @@ def visualize_anchors(img, anchors, output_path):
                     org=(x1, y2), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.6, color=(0, 0, 255),  # BGR
                     thickness=border_width)
     cv2.imwrite(output_path, img)
-    return img
