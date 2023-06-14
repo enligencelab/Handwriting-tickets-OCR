@@ -15,17 +15,16 @@ pip install openvino-dev
 omz_downloader --name handwritten-simplified-chinese-recognition-0001
 ```
 
----
+If calling `omz_downloader` fails, it is at `$venv/lib/site-packages/openvino/model_zoo/omz_downloader.py`, 
+where `$venv` is the Python virtual environment directory.
 
-**If you are using Anaconda**
-
-Copy Python library into OpenVino. The location of Python library is different 
+> **Anaconda**
+> 
+> Copy Python library into OpenVino. The location of Python library is different 
 depending on operating systems. Generally, if you 
 use Anaconda in Ubuntu and your environment is named `ocr`, Python library 
 is at `~/.conda/envs/ocr/lib/libpython3.9.so.1.0` and OpenVino is at 
 `~/.conda/envs/ocr/lib/python3.9/site-packages/openvino/libs`.
-
----
 
 Follow the guidance of https://pytorch.org/get-started/locally/ to install 
 PyTorch. If you don't have an Intel GPU, please install CPU version.
@@ -37,24 +36,22 @@ if you have installed it and configured carefully.
 pip install -r requirements.txt
 ```
 
----
 
-**If you have Intel GPU**
 
-If you have a Intel GPU, please choose the calculation component that is 
-compatible to both OpenVino and PyTorch. Also, please replace the following 
-line in `bulk_recognition.ipynb`.
-```
-net_exec = ie.load_network(network=net, device_name='CPU')
-```
-with
-```
-net_exec = ie.load_network(network=net, device_name='GPU')
-```
+> **Intel GPU**
+>
+> If you have a Intel GPU, please choose the calculation component that is 
+> compatible to both OpenVino and PyTorch. Also in `bulk_recognition.ipynb`, 
+> please replace the following line
+> ```
+> net_exec = ie.load_network(network=net, device_name='CPU')
+> ```
+> with
+> ```
+> net_exec = ie.load_network(network=net, device_name='GPU')
+> ```
+> This config hasn't been tested because the author does not have a Intel GPU.
 
-This config hasn't been tested because the author does not have a Intel GPU.
-
----
 
 ## Acknowledgement
 
